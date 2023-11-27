@@ -5,7 +5,7 @@ import task_model
 
 app = Flask(__name__)
 
-db_filename = 'tasks.db'
+db_filename = os.environ.get('DATABASE_PATH', 'tasks.db')
 
 if not os.path.exists(db_filename):
     task_model.create_db(db_filename)
